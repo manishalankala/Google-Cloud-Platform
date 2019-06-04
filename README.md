@@ -353,7 +353,8 @@ Project management
 
 Create two tasks
 
-######Integrate jira with git#######
+
+INTEGRATE GIT WITH JIRA
 
 
 Go to manage apps in jira and look for Git integration for JIRA
@@ -378,7 +379,10 @@ open the task in dashboard you can see on the tab git commits(reindexing takes a
 Go to Git repositories tab in application in administration click on actions and reindex(if you find reindexing is slow this for manual process)
 
 
-#######setting up sonarqube#######
+
+
+SETTING UP IN SONARQUBE
+
 
 go to firewall rule in GCP and create firewall 8082
 
@@ -478,7 +482,7 @@ Error :Missing required setting: scm connection or developerConnection must be s
 
 
 
-
+After mvn deploy -X in Windows cmd
 
 
 L:\ops\tonexus>mvn deploy -X
