@@ -5,13 +5,13 @@
 
 
 
-**Access given same as root user**
+#Access given same as root user#
 
 sudo groupadd docker
 sudo gpasswd -a $USER docker
 sudo systemctl docker restart
 
-*************container (if images is there)*********
+#container (if images is there)#
 docker run jenkins
 
 *********Container(its pulls images and run a new container)*********
