@@ -5,7 +5,7 @@
 
 
 
-######Access given same as root user####
+**Access given same as root user**
 
 sudo groupadd docker
 sudo gpasswd -a $USER docker
