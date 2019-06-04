@@ -11,43 +11,43 @@ sudo groupadd docker
 sudo gpasswd -a $USER docker
 sudo systemctl docker restart
 
-###### container (if images is there)########
+*************container (if images is there)*********
 docker run jenkins
 
-########Container(its pulls images and run a new container)############
+*********Container(its pulls images and run a new container)*********
 docker run -it jenkins
 
-#######to run container in background ########
+*********to run container in background *********
 docker run -d jenkins
 
-######to list running container #####
+*********to list running container *********
 docker ps
 
-####### to see last container was started ####
+*********to see last container was started *********
 docker ps -l
 
-####### to see the ID of conatiner #########
+*********to see the ID of conatiner *********
 docker ps -q
 
-####### to see logs of container (starting 4 letters is enough)
+*********to see logs of container (starting 4 letters is enough)*********
 docker logs 8fde
 
-####### to see using tail command with conatiner id#########
+*********to see using tail command with conatiner id*********
 docker logs --tail 6 8fde
 
 
-###### Kill immediately  with conatiner ID#########
+*********Kill immediately  with conatiner ID*********
 docker kill 8fdebb8a8b95
 
-###### Stop with Conatiner ID,if conatiner not stops in 10 sec it kills  ###########
+*********Stop with Conatiner ID,if conatiner not stops in 10 sec it kills*********
 docker stop 8fdebb8a8b95
 
 
-####### list runnning container #######
+*********list runnning container*********
 docker ps
 
 
-###### list of stopped containers ######
+*********list of stopped containers*********
 docker ps -a
 
 
