@@ -1770,57 +1770,7 @@ if password not working go to C:\Program Files (x86)\Jenkins\conf.xml  under ser
 
 http://localhost:8080/
  
- 
-
-
-
 http://35.237.64.4:8084
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -1832,13 +1782,19 @@ http://35.237.64.4:8084
 
 
 
+Chef
+
+![image](https://user-images.githubusercontent.com/33985509/59063276-0322b400-88a8-11e9-82ae-9b412c50e384.png)
 
 
 
 
+![image](https://user-images.githubusercontent.com/33985509/59063395-4715b900-88a8-11e9-995c-54ba01e926ae.png)
 
 
 
+
+![image](https://user-images.githubusercontent.com/33985509/59063489-7e846580-88a8-11e9-9690-c066b2bda399.png)
 
 
 
