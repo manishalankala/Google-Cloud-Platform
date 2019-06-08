@@ -1588,7 +1588,7 @@ docker run --name jm1 -d -p 80:8080 -p 50000:50000 -v /var/lib/docker/volumes/jm
 
 
 
-# Docker jenkins ( Setting Up jekins)
+# Docker jenkins ( Setting Up Jenkins )
 
 
 docker pull jenkins/jenkins
@@ -1605,8 +1605,152 @@ http://localhost:8080/
 http://35.237.64.4:8084
 
 
+![image](https://user-images.githubusercontent.com/33985509/59152953-29368880-8a4f-11e9-93ec-d029fe0024b9.png)
 
-#sonarqube container exited 
+
+# Install plugins under jenkins 
+
+Go to Manage Jenkins ------> Plugin Manager
+
+![image](https://user-images.githubusercontent.com/33985509/59152956-5c791780-8a4f-11e9-975f-1155962aa9e6.png)
+
+
+![image](https://user-images.githubusercontent.com/33985509/59152979-da3d2300-8a4f-11e9-9663-4475680c64d5.png)
+
+
+![image](https://user-images.githubusercontent.com/33985509/59152988-08226780-8a50-11e9-8cbb-7cecc30a5cac.png)
+
+
+![image](https://user-images.githubusercontent.com/33985509/59152998-37d16f80-8a50-11e9-9256-a5729da47457.png)
+
+
+
+
+Go to jenkins ---> global tool configuration and add SonarQube servers 
+
+![image](https://user-images.githubusercontent.com/33985509/59153260-9baa6700-8a55-11e9-9157-b7feae700c76.png)
+
+
+
+![image](https://user-images.githubusercontent.com/33985509/59153273-d8765e00-8a55-11e9-8a8e-d7184f424065.png)
+
+
+
+
+
+
+commands to get public and private keys
+
+ssh-keygen -t rsa
+
+copy the public key in github
+
+Go to git hub ---settings ----- ssh and gpg keys
+
+then copy the private key in sonarqube build project where you give credentials
+
+![image](https://user-images.githubusercontent.com/33985509/59153089-428d0400-8a52-11e9-8578-93c89cf14678.png)
+
+
+
+# Build Job
+
+Now i try to buildjob for sonarqube
+
+sonar qube integration can be done by mavaen,Gradle
+install sonarqube scanner
+sonarqube is for static code analysis
+
+
+Create new job in jenkins naming as sonarqube  
+
+Go to new item  ----> Free style project -----> name it sonarqube
+
+global configuration before running job download plugins sonar and sonar scanner
+
+Now go to configure in the build job
+
+
+under the build configuration ---> 
+source code management ------> give Repository URL :git@github.com:manishalankala/helloworld-java-maven.git  and Credentials : 
+
+in source code management click on git icon and give credentials
+
+![image](https://user-images.githubusercontent.com/33985509/59153161-7e749900-8a53-11e9-9aff-c2a2d3cc686a.png)
+
+
+If you are adding it newly then add the private key 
+
+![image](https://user-images.githubusercontent.com/33985509/59153180-ce536000-8a53-11e9-89e1-ce051f73f57d.png)
+
+
+
+![image](https://user-images.githubusercontent.com/33985509/59153189-09559380-8a54-11e9-82fa-807ae87a9094.png)
+
+
+ Then go to dashboard and click buildnow
+ 
+ 
+ 
+Another build job 
+ 
+Go to global configuration in jenkins ,select maven and save the version
+then build new job 
+
+name : build
+Tyepe : free style project 
+
+![image](https://user-images.githubusercontent.com/33985509/59153244-3bb3c080-8a55-11e9-889e-5fe72b2cb8a9.png)
+
+
+![image](https://user-images.githubusercontent.com/33985509/59153250-656ce780-8a55-11e9-8b18-05c04cd23375.png)
+
+
+then run buildnow
+
+if you run build you get following error
+[build] $ mvn compile
+FATAL: command execution failed  
+
+Then follow below
+
+Jenkins ----> Global tool configuration -----> Maven installations Name: Maven   Install automatically\
+
+On build tab ------>  invoke top level maven targets ------> maven targets ------> Maven Version: maven Goals : compile
+
+
+ 
+Creating one more build 
+
+Name: Unit testing 
+Type: free style project
+
+
+![image](https://user-images.githubusercontent.com/33985509/59153352-90f0d180-8a57-11e9-911b-b2bb8e4eb170.png)
+
+
+
+![image](https://user-images.githubusercontent.com/33985509/59153361-c695ba80-8a57-11e9-8d45-94cdc9221e23.png)
+
+ goals is mentioned wrong!!!
+ 
+ Then run build now
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+Note:
+#sonarqube container exited
 #docker start container id
 #docker ps -f "status=exited"
 
