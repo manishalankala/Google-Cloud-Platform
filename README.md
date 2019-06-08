@@ -7,135 +7,45 @@ CI/CD from scratch using Google cloud platform
 
 
 
+# Create a vm instance in Google cloud account and create external ip 
+
+![image](https://user-images.githubusercontent.com/33985509/59151716-5af02500-8a38-11e9-8210-1edfa9209c38.png)
 
 
 
+# Create a firewall port for each application
 
-####### Docker  Jira ########
+![image](https://user-images.githubusercontent.com/33985509/59151728-9a1e7600-8a38-11e9-9aca-803ce4c15b6e.png)
 
-docker pull cptactionhank/atlassian-jira
+
+
+# Create a specific port for jira application to run
+
+![image](https://user-images.githubusercontent.com/33985509/59151745-db168a80-8a38-11e9-9d22-ff02006b9b2f.png)
+
+
+
+# SSH
+![image](https://user-images.githubusercontent.com/33985509/59151763-27fa6100-8a39-11e9-91df-36d99394965c.png)
+
+
+
+# Docker  Jira #
+
+docker pull cptactionhank/atlassian-jira   ( pulling image from docker hub )
 
 [root@dockerdemo ~]# docker images
 REPOSITORY                     TAG                 IMAGE ID            CREATED             SIZE
 cptactionhank/atlassian-jira   latest              4c56f19283ae        4 days ago          507MB
 
-docker run --detach --publish 8585:8585 cptactionhank/atlassian-jira:latest
 
-External ip : 35.237.64.4
 
-35.237.64.4:8585
+docker run --detach --publish 8080:8081 cptactionhank/atlassian-jira:latest     ( running the image)
 
+Go to GCP firewall rules and specify  tcp - 8081
 
+http//:35.237.64.4:8081
 
-###### Docker sonarqube ########
-docker pull soanrqube
-
-docker run -d --name sonarqube -p 9000:9000 -p 9092:9092 soanrqube
-
-
-sonar src code - 
-sonar runner or scanner - 2.6.1
-
-
-
-maven compile
-mvn test
-mvn package
-mvn deploy
-
-
-
-docker pull sonatype/nexus
-
-docker run -d -p 8081:8081 --name nexus sonatype/nexus:oss
-
-## nexus modification ##
-
-pom.xml 
-settings.xml 
-
-
-provide the url in pom.xml after the creating the repository in nexus
-
-java install on jdk-8u92-linux-x64.tar.gz
-
-mv jdk1.8.0_92 jdk1.8
-
-
-export JAVA_HOME="/opt/jdk1.8
-export PATH=$JAVA_HOME/bin:$PATH
-
-
-
-########Grafana#######################
-docker run -d --name=grafana -p 3000:3000 grafana/grafana
-
-default it uses syslite database if we want to change we need to chnage grafana.ini file
-if its not in in the same server mention external
-
-
-##########Graphite######################
-
-docker pull hopsoft/graphite-statsd
-
-*exposing and running graphite & statsd
-
-docker run -d --name graphite --restart=always-p 81:81 -p 8125:8125/udp hopsoft/graphite-statsd
-
-
-to change smapling frequency and utention period ,go to docker container ---> docker exec -it graphite bash and look for below file
-
-storage-schemas.conf
-
-vi storage-schemas.conf
-
-for every new configuration for example
-[shoehub]
-pattern = shoehub\.
-retentions = 20s:5h
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-(Diffrent )
-docker pull jenkins/jenkins
-
-#####Before ######
-docker run --name test_jenkins -d -p 80:8080 -p 50000:50000 -v /var/lib/jenkins_docker:/var/jenkins_home jenkins
-
-####After#######
-docker run --name jm1 -d -p 80:8080 -p 50000:50000 -v /var/lib/docker/volumes/jm1_vol:/var/jenkins_home jenkinsci/blueocean:latest
-
-
-
-
-
-
-
-
-
-####################  Real time CI/CD testing on GCP #########################
-
-
-
-docker pull cptactionhank/atlassian-jira
-
-docker run --detach --publish 8081:8080 cptactionhank/atlassian-jira:latest
-
-Go to GCP firewall rules and specified tcp - 8081
-
-http//:35.237.64.4:8080
 
 Jira Core
 
@@ -150,20 +60,21 @@ Password - Welcome@1234
 Url: http://35.237.64.4:8081/secure/WelcomeToJIRA.jspa
 
 
-Create project 
+![image](https://user-images.githubusercontent.com/33985509/59152112-15365b00-8a3e-11e9-9806-dea47514d5ee.png)
 
-Name : ABCD
-Key : ABCD
+
+
+Name : AIR
+Key : AIR
 Project management
 
 
 Create two tasks
 
+# Integrate jira with git
 
-INTEGRATE GIT WITH JIRA
 
-
-Go to manage apps in jira and look for Git integration for JIRA
+Go to manage apps in jira 
 
 Click on free
 
@@ -172,13 +83,23 @@ Apply license
 
 we can see Your trial is expiring on 30/Jun/19. Buy a license for this app.
 
+![image](https://user-images.githubusercontent.com/33985509/59152168-2fbd0400-8a3f-11e9-9bdc-772ed76dd758.png)
+
+
+Git integration for JIRA
+
+
 Go to applications tab on in administration
 
 click on Git repositories tab and click on connect to git repository
 
+
+![image](https://user-images.githubusercontent.com/33985509/59152190-9fcb8a00-8a3f-11e9-9d13-cb7355f85bce.png)
+
+
 Go to git hub and change your pom.xml file and scroll below(https://github.com/manishalankala/helloworld-java-maven/blob/master/pom.xml)
 
-Commit changes fix for ABCD-1(which is key of the task created )
+Commit changes fix for AIR-1(which is key of the task created )
 
 open the task in dashboard you can see on the tab git commits(reindexing takes a bit moment)
 
@@ -187,10 +108,11 @@ Go to Git repositories tab in application in administration click on actions and
 
 
 
-SETTING UP IN SONARQUBE
 
+# Docker sonarqube   (Setting Up sonarqube)
 
-go to firewall rule in GCP and create firewall 8082
+sonar src code - 
+sonar runner or scanner - 2.6.1
 
 docker pull sonarqube
 
@@ -204,6 +126,11 @@ Login sonarqube
 
 username - admin
 password - admin
+
+
+![image](https://user-images.githubusercontent.com/33985509/59152150-b58c7f80-8a3e-11e9-8ae7-f6bafd5d1c01.png)
+
+
 
 https://github.com/manishalankala/java-sonar-runner-simple
 
@@ -222,17 +149,49 @@ Its need to tell the scanner to know its path in conf folder (sonar-scanner-prop
 L:\ops\sonarsrc contains (sonar-project.properties)
 
 
-#############
 
-docker pull sonatype/nexus
+![image](https://user-images.githubusercontent.com/33985509/59152360-98f24680-8a42-11e9-8cd9-b9f01a226ffa.png)
+
+
+
+
+
+# Docker nexus (Setting up Nexus)
+
+ocker pull sonatype/nexus
 
 docker run -d -p 8083:8081 --name nexus sonatype/nexus:oss
 
-http://35.237.64.4:8083/nexus/
+![image](https://user-images.githubusercontent.com/33985509/59152239-63e4f480-8a40-11e9-9656-68dc857880d9.png)
 
+
+
+http://35.237.64.4:8083/nexus/
 
 Credentials
 admin / admin123
+
+
+![image](https://user-images.githubusercontent.com/33985509/59152258-c4743180-8a40-11e9-91de-ac6a3446776c.png)
+
+
+
+# Imprtant nexus modification on the below files
+
+pom.xml 
+settings.xml 
+
+
+provide the url in pom.xml after the creating the repository in nexus
+
+java install on jdk-8u92-linux-x64.tar.gz
+
+mv jdk1.8.0_92 jdk1.8
+
+
+export JAVA_HOME="/opt/jdk1.8
+export PATH=$JAVA_HOME/bin:$PATH
+
 
 
 Two things we need to change pom.xml and settings.xml
@@ -247,9 +206,9 @@ http://35.237.64.4:8083/nexus/content/repositories/apache-snapshots/
 In settings.xml under C:\Tools\apache-maven-3.6.1\conf
 
 <server>
-      <id>deploymentRepo</id>
-      <username>repouser</username>
-      <password>repopwd</password>
+      <id>deployment</id>
+      <username>admin</username>
+      <password>admin123</password>
     </server>
     
 
@@ -257,17 +216,21 @@ In settings.xml under C:\Tools\apache-maven-3.6.1\conf
 changing the Id to deploymentRepo from sym in pom.xml
 
 <repository>
-        <id>deploymentRepo</id>
+        <id>deployment</id>
         <name>release softx</name>
         <url>http://35.237.64.4:8083/nexus/content/repositories/airrelease/</url>
     </repository>
     <snapshotRepository>
-        <id>deploymentRepo</id>
+        <id>deployment</id>
         <name>snapshot softx</name>
         <url>http://35.237.64.4:8083/nexus/content/repositories/airsnapshot/</url>
     </snapshotRepository>
 </distributionManagement>
 
+
+
+
+![image](https://user-images.githubusercontent.com/33985509/59152295-482e1e00-8a41-11e9-87fa-17fbaa63366c.png)
 
 
 
@@ -282,14 +245,17 @@ mvn release:clean release:prepare
 Error :Missing required setting: scm connection or developerConnection must be specified.
 
 
+Go to secruity tab and click on users and right click on deployment --- set password  = repopwd repopwd
 
 
 
+L:\ops\tonexus>mvn deploy -X
 
 
 
 After mvn deploy -X in Windows cmd
 
+Below the execution results
 
 L:\ops\tonexus>mvn deploy -X
 Apache Maven 3.6.1 (d66c9c0b3152b2e69ee9bac180bb8fcc8e6af555; 2019-04-04T21:00:29+02:00)
@@ -1560,9 +1526,69 @@ Uploaded to tiger: http://35.237.64.4:8083/nexus/content/repositories/airrelease
 
 
 
-##### install on jenkins ###############
+
+########Grafana#######################
+docker run -d --name=grafana -p 3000:3000 grafana/grafana
+
+default it uses syslite database if we want to change we need to chnage grafana.ini file
+if its not in in the same server mention external
 
 
+##########Graphite######################
+
+docker pull hopsoft/graphite-statsd
+
+*exposing and running graphite & statsd
+
+docker run -d --name graphite --restart=always-p 81:81 -p 8125:8125/udp hopsoft/graphite-statsd
+
+
+to change smapling frequency and utention period ,go to docker container ---> docker exec -it graphite bash and look for below file
+
+storage-schemas.conf
+
+vi storage-schemas.conf
+
+for every new configuration for example
+[shoehub]
+pattern = shoehub\.
+retentions = 20s:5h
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+(Diffrent )
+docker pull jenkins/jenkins
+
+#####Before ######
+docker run --name test_jenkins -d -p 80:8080 -p 50000:50000 -v /var/lib/jenkins_docker:/var/jenkins_home jenkins
+
+####After#######
+docker run --name jm1 -d -p 80:8080 -p 50000:50000 -v /var/lib/docker/volumes/jm1_vol:/var/jenkins_home jenkinsci/blueocean:latest
+
+
+
+
+
+
+
+
+
+
+
+
+# Docker jenkins ( Setting Up jekins)
 
 
 docker pull jenkins/jenkins
