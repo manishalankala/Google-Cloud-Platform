@@ -9,11 +9,15 @@ CI/CD using Google cloud platform
 
 # Create a vm instance in Google cloud account and create external ip 
 
+
+
 ![image](https://user-images.githubusercontent.com/33985509/59151716-5af02500-8a38-11e9-8210-1edfa9209c38.png)
 
 
 
 # Create a firewall port for each application
+
+
 
 ![image](https://user-images.githubusercontent.com/33985509/59151728-9a1e7600-8a38-11e9-9aca-803ce4c15b6e.png)
 
@@ -21,18 +25,24 @@ CI/CD using Google cloud platform
 
 # Create a specific port for jira application to run
 
+
+
 ![image](https://user-images.githubusercontent.com/33985509/59151745-db168a80-8a38-11e9-9d22-ff02006b9b2f.png)
 
 
 
 # SSH
+
+
 ![image](https://user-images.githubusercontent.com/33985509/59151763-27fa6100-8a39-11e9-91df-36d99394965c.png)
 
 
 
 # Docker  Jira #
 
+
 docker pull cptactionhank/atlassian-jira   ( pulling image from docker hub )
+
 
 [root@dockerdemo ~]# docker images
 REPOSITORY                     TAG                 IMAGE ID            CREATED             SIZE
@@ -60,6 +70,8 @@ Password - Welcome@1234
 Url: http://35.237.64.4:8081/secure/WelcomeToJIRA.jspa
 
 
+
+
 ![image](https://user-images.githubusercontent.com/33985509/59152112-15365b00-8a3e-11e9-9806-dea47514d5ee.png)
 
 
@@ -71,25 +83,37 @@ Project management
 
 Create two tasks
 
+
+
 # Integrate jira with git
 
 
 Go to manage apps in jira 
 
+
+
 Click on free
+
+
 
 Pop up on new Evaluation license & click on generate license
 Apply license
 
 we can see Your trial is expiring on 30/Jun/19. Buy a license for this app.
 
+
+
 ![image](https://user-images.githubusercontent.com/33985509/59152168-2fbd0400-8a3f-11e9-9bdc-772ed76dd758.png)
 
 
-Git integration for JIRA
+
+
+# Git integration for JIRA
+
 
 
 Go to applications tab on in administration
+
 
 click on Git repositories tab and click on connect to git repository
 
@@ -97,11 +121,19 @@ click on Git repositories tab and click on connect to git repository
 ![image](https://user-images.githubusercontent.com/33985509/59152190-9fcb8a00-8a3f-11e9-9d13-cb7355f85bce.png)
 
 
-Go to git hub and change your pom.xml file and scroll below(https://github.com/manishalankala/helloworld-java-maven/blob/master/pom.xml)
+Go to git hub and change your pom.xml file and scroll below
+
+https://github.com/manishalankala/helloworld-java-maven/blob/master/pom.xml
+
+
 
 Commit changes fix for AIR-1(which is key of the task created )
 
+
+
 open the task in dashboard you can see on the tab git commits(reindexing takes a bit moment)
+
+
 
 Go to Git repositories tab in application in administration click on actions and reindex(if you find reindexing is slow this for manual process)
 
@@ -134,17 +166,24 @@ password - admin
 
 https://github.com/manishalankala/java-sonar-runner-simple
 
+
 took src folder copied to my ops folder remaining files deleted
+
 
 go to cmd 
 
+
 L:\ops\sonarsrc
+
 
 then
 
+
 L:\ops\sonar-scanner-cli-3.3.0.1492-windows\sonar-scanner-3.3.0.1492-windows\bin\sonar-scanner.bat
 
+
 Its need to tell the scanner to know its path in conf folder (sonar-scanner-properties)
+
 
 L:\ops\sonarsrc contains (sonar-project.properties)
 
@@ -178,15 +217,24 @@ admin / admin123
 
 # Imprtant nexus modification on the below files
 
+
+
 pom.xml 
 settings.xml 
 
 
+
 provide the url in pom.xml after the creating the repository in nexus
+
+
 
 java install on jdk-8u92-linux-x64.tar.gz
 
+
+
 mv jdk1.8.0_92 jdk1.8
+
+
 
 
 export JAVA_HOME="/opt/jdk1.8
@@ -197,10 +245,18 @@ export PATH=$JAVA_HOME/bin:$PATH
 Two things we need to change pom.xml and settings.xml
 
 
+
+
 Created two repositories Release and snapshot in nexus and add in pom.xml after download from https://github.com/manishalankala/helloworld-java-maven
+
+
+
 
 http://35.237.64.4:8083/nexus/content/repositories/airsnapshot/
 http://35.237.64.4:8083/nexus/content/repositories/apache-snapshots/
+
+
+
 
 
 In settings.xml under C:\Tools\apache-maven-3.6.1\conf
@@ -211,6 +267,9 @@ In settings.xml under C:\Tools\apache-maven-3.6.1\conf
       <password>admin123</password>
     </server>
     
+
+
+
 
 
 changing the Id to deploymentRepo from sym in pom.xml
@@ -230,11 +289,18 @@ changing the Id to deploymentRepo from sym in pom.xml
 
 
 
+
 ![image](https://user-images.githubusercontent.com/33985509/59152295-482e1e00-8a41-11e9-87fa-17fbaa63366c.png)
 
 
 
+
+
 Go to secruity tab and click on users and right click on deployment --- set password  = repopwd repopwd
+
+
+
+
 
 go to cmd and go to the specified path (L:\ops\tonexus) and type mvn deploy
 
@@ -242,7 +308,11 @@ go to cmd and go to the specified path (L:\ops\tonexus) and type mvn deploy
 
 mvn release:clean release:prepare
 
+
+
 Error :Missing required setting: scm connection or developerConnection must be specified.
+
+
 
 
 Go to secruity tab and click on users and right click on deployment --- set password  = repopwd repopwd
@@ -255,7 +325,11 @@ L:\ops\tonexus>mvn deploy -X
 
 After mvn deploy -X in Windows cmd
 
+
+
 Below the execution results
+
+
 
 L:\ops\tonexus>mvn deploy -X
 Apache Maven 3.6.1 (d66c9c0b3152b2e69ee9bac180bb8fcc8e6af555; 2019-04-04T21:00:29+02:00)
@@ -1524,70 +1598,6 @@ Uploaded to tiger: http://35.237.64.4:8083/nexus/content/repositories/airrelease
 
 
 
-
-
-
-########Grafana#######################
-docker run -d --name=grafana -p 3000:3000 grafana/grafana
-
-default it uses syslite database if we want to change we need to chnage grafana.ini file
-if its not in in the same server mention external
-
-
-##########Graphite######################
-
-docker pull hopsoft/graphite-statsd
-
-*exposing and running graphite & statsd
-
-docker run -d --name graphite --restart=always-p 81:81 -p 8125:8125/udp hopsoft/graphite-statsd
-
-
-to change smapling frequency and utention period ,go to docker container ---> docker exec -it graphite bash and look for below file
-
-storage-schemas.conf
-
-vi storage-schemas.conf
-
-for every new configuration for example
-[shoehub]
-pattern = shoehub\.
-retentions = 20s:5h
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-(Diffrent )
-docker pull jenkins/jenkins
-
-#####Before ######
-docker run --name test_jenkins -d -p 80:8080 -p 50000:50000 -v /var/lib/jenkins_docker:/var/jenkins_home jenkins
-
-####After#######
-docker run --name jm1 -d -p 80:8080 -p 50000:50000 -v /var/lib/docker/volumes/jm1_vol:/var/jenkins_home jenkinsci/blueocean:latest
-
-
-
-
-
-
-
-
-
-
-
-
 # Docker jenkins ( Setting Up Jenkins )
 
 
@@ -1612,13 +1622,21 @@ http://35.237.64.4:8084
 
 Go to Manage Jenkins ------> Plugin Manager
 
+
+
 ![image](https://user-images.githubusercontent.com/33985509/59152956-5c791780-8a4f-11e9-975f-1155962aa9e6.png)
+
+
 
 
 ![image](https://user-images.githubusercontent.com/33985509/59152979-da3d2300-8a4f-11e9-9663-4475680c64d5.png)
 
 
+
+
 ![image](https://user-images.githubusercontent.com/33985509/59152988-08226780-8a50-11e9-8cbb-7cecc30a5cac.png)
+
+
 
 
 ![image](https://user-images.githubusercontent.com/33985509/59152998-37d16f80-8a50-11e9-9256-a5729da47457.png)
@@ -1627,6 +1645,8 @@ Go to Manage Jenkins ------> Plugin Manager
 
 
 Go to jenkins ---> global tool configuration and add SonarQube servers 
+
+
 
 ![image](https://user-images.githubusercontent.com/33985509/59153260-9baa6700-8a55-11e9-9157-b7feae700c76.png)
 
@@ -1648,6 +1668,8 @@ copy the public key in github
 Go to git hub ---settings ----- ssh and gpg keys
 
 then copy the private key in sonarqube build project where you give credentials
+
+
 
 ![image](https://user-images.githubusercontent.com/33985509/59153089-428d0400-8a52-11e9-8578-93c89cf14678.png)
 
@@ -1688,7 +1710,15 @@ If you are adding it newly then add the private key
 ![image](https://user-images.githubusercontent.com/33985509/59153189-09559380-8a54-11e9-82fa-807ae87a9094.png)
 
 
- Then go to dashboard and click buildnow
+
+
+ Then go to dashboard and click buildnow  and check console output
+ 
+ 
+ ![image](https://user-images.githubusercontent.com/33985509/59153630-8dad1400-8a5e-11e9-9ec6-b3bbf0e11c2f.png)
+ 
+ 
+ 
  
  
  
@@ -1700,13 +1730,27 @@ then build new job
 name : build
 Tyepe : free style project 
 
+
+
 ![image](https://user-images.githubusercontent.com/33985509/59153244-3bb3c080-8a55-11e9-889e-5fe72b2cb8a9.png)
+
+
+
 
 
 ![image](https://user-images.githubusercontent.com/33985509/59153250-656ce780-8a55-11e9-8b18-05c04cd23375.png)
 
 
+
+
 then run buildnow
+
+
+
+![image](https://user-images.githubusercontent.com/33985509/59153626-327b2180-8a5e-11e9-9820-6b1037a94947.png)
+
+
+
 
 if you run build you get following error
 [build] $ mvn compile
@@ -1719,11 +1763,15 @@ Jenkins ----> Global tool configuration -----> Maven installations Name: Maven  
 On build tab ------>  invoke top level maven targets ------> maven targets ------> Maven Version: maven Goals : compile
 
 
+
+
+
  
 Creating one more build 
 
 Name: Unit testing 
 Type: free style project
+
 
 
 ![image](https://user-images.githubusercontent.com/33985509/59153352-90f0d180-8a57-11e9-911b-b2bb8e4eb170.png)
@@ -1732,10 +1780,18 @@ Type: free style project
 
 ![image](https://user-images.githubusercontent.com/33985509/59153361-c695ba80-8a57-11e9-8d45-94cdc9221e23.png)
 
+
+
  goals is mentioned wrong!!!
+ 
  
  Then run build now
  
+ 
+ ![image](https://user-images.githubusercontent.com/33985509/59153623-09f32780-8a5e-11e9-933b-839c3597e43c.png)
+ 
+ 
+ Check in console output for the success result
  
  
  
@@ -1745,15 +1801,21 @@ Name: package
 Type: multi configuration
 
 
+
 ![image](https://user-images.githubusercontent.com/33985509/59153397-9f8bb880-8a58-11e9-9bbe-96e8df414c36.png)
+
 
 
 ![image](https://user-images.githubusercontent.com/33985509/59153406-fdb89b80-8a58-11e9-9e9c-9e7b6a723cd5.png)
 
 
+
 run build now
+
 ![image](https://user-images.githubusercontent.com/33985509/59153419-3fe1dd00-8a59-11e9-9eb6-d013f3bd4bd1.png)
 
+
+Check in console output for the success result
 
 
 
@@ -1766,16 +1828,31 @@ Type: free style project
 ![image](https://user-images.githubusercontent.com/33985509/59153445-ee861d80-8a59-11e9-9660-1d664eb2deb0.png)
 
 
+
+
 ![image](https://user-images.githubusercontent.com/33985509/59153455-3016c880-8a5a-11e9-8459-b24c5f84de91.png)
+
+
 
 
 ![image](https://user-images.githubusercontent.com/33985509/59153458-4d4b9700-8a5a-11e9-8bd6-969790856216.png)
 
 
+
+
 ![image](https://user-images.githubusercontent.com/33985509/59153470-8126bc80-8a5a-11e9-915e-7fe18d173dfa.png)
 
 
+
+
 ![image](https://user-images.githubusercontent.com/33985509/59153477-a74c5c80-8a5a-11e9-9d70-f16c81266c90.png)
+
+
+
+
+
+![image](https://user-images.githubusercontent.com/33985509/59153595-3195c000-8a5d-11e9-981e-96609a43b172.png)
+
 
 
 
@@ -1788,21 +1865,38 @@ Now to do deployment process
 
 go to sonarqube build job and click on configure tab ---> post build actions 
 
+
+
 ![image](https://user-images.githubusercontent.com/33985509/59153540-2e99d000-8a5b-11e9-8a1d-3a05a87df71c.png)
 
+
+
 go to build job and click on configure tab ---> post build actions 
+
+
 
 ![image](https://user-images.githubusercontent.com/33985509/59153544-7b7da680-8a5b-11e9-8704-e8fae368a3bd.png)
 
 
+
+
 go to Unit Testing build job and click on configure tab ---> post build actions 
+
+
 
 ![image](https://user-images.githubusercontent.com/33985509/59153549-a9fb8180-8a5b-11e9-891b-31c12552eda0.png)
  
  
+ 
+ 
 go to package build job and click on configure tab ---> post build actions 
 
+
+
 ![image](https://user-images.githubusercontent.com/33985509/59153555-052d7400-8a5c-11e9-9c98-603de0b0c081.png)
+ 
+ 
+ 
  
  
  
@@ -1811,8 +1905,73 @@ install pipeline plugin
 https://wiki.jenkins.io/display/JENKINS/Pipeline+Plugin
 
 
+we find the + icon  then add name sonarbuildphase
 
 
+![image](https://user-images.githubusercontent.com/33985509/59153605-7de10000-8a5d-11e9-99ff-1942068915ff.png)
+
+
+
+![image](https://user-images.githubusercontent.com/33985509/59153610-a963ea80-8a5d-11e9-8ad0-d7a7593d2270.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+(Diffrent )
+docker pull jenkins/jenkins
+
+#####Before ######
+docker run --name test_jenkins -d -p 80:8080 -p 50000:50000 -v /var/lib/jenkins_docker:/var/jenkins_home jenkins
+
+####After#######
+docker run --name jm1 -d -p 80:8080 -p 50000:50000 -v /var/lib/docker/volumes/jm1_vol:/var/jenkins_home jenkinsci/blueocean:latest
+
+
+
+########Grafana#######################
+docker run -d --name=grafana -p 3000:3000 grafana/grafana
+
+default it uses syslite database if we want to change we need to chnage grafana.ini file
+if its not in in the same server mention external
+
+
+##########Graphite######################
+
+docker pull hopsoft/graphite-statsd
+
+*exposing and running graphite & statsd
+
+docker run -d --name graphite --restart=always-p 81:81 -p 8125:8125/udp hopsoft/graphite-statsd
+
+
+to change smapling frequency and utention period ,go to docker container ---> docker exec -it graphite bash and look for below file
+
+storage-schemas.conf
+
+vi storage-schemas.conf
+
+for every new configuration for example
+[shoehub]
+pattern = shoehub\.
+retentions = 20s:5h
 
 
 
@@ -1821,6 +1980,21 @@ Note:
 #sonarqube container exited
 #docker start container id
 #docker ps -f "status=exited"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
