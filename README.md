@@ -1,3 +1,11 @@
+
+# Beginner Guide
+
+
+
+
+
+
 # CI/CD using Google Cloud Platform
 
 
@@ -2046,6 +2054,36 @@ Note:
 
 
 Chef
+
+
+https://manage.chef.io/login
+
+
+Create an origanization name 
+
+
+
+You can download the starter kit 
+
+![image](https://user-images.githubusercontent.com/33985509/59154512-0ff40300-8a74-11e9-9082-2179d640e0c7.png)
+
+
+
+
+
+Chef server
+knife configuration
+cookbooks
+nodes
+
+
+
+
+
+
+
+
+
 
 ![image](https://user-images.githubusercontent.com/33985509/59063276-0322b400-88a8-11e9-82ae-9b412c50e384.png)
 
