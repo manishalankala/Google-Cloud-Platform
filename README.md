@@ -2,6 +2,8 @@
 
 
 
+
+
 ![image](https://user-images.githubusercontent.com/33985509/59151479-25493d00-8a34-11e9-9cff-90a50130124c.png)
 
 
@@ -40,10 +42,26 @@
 
 
 
-# Docker  Jira #
+
+
+Install docker on my linux instance
+
+
+
+![image](https://user-images.githubusercontent.com/33985509/59153698-d2d24580-8a60-11e9-96dd-7c2cf7bc75cf.png)
+
+
+
+
+
+# Docker  Jira  (Setting up Jira)
+
+
 
 
 docker pull cptactionhank/atlassian-jira   ( pulling image from docker hub )
+
+
 
 
 [root@dockerdemo ~]# docker images
@@ -78,6 +96,8 @@ Url: http://35.237.64.4:8081/secure/WelcomeToJIRA.jspa
 
 
 
+
+
 Name : AIR
 Key : AIR
 Project management
@@ -87,7 +107,7 @@ Create two tasks
 
 
 
-# Integrate jira with git
+# Integrate jira with git      (Jira tool with Git repository)
 
 
 Go to manage apps in jira 
@@ -123,7 +143,12 @@ click on Git repositories tab and click on connect to git repository
 ![image](https://user-images.githubusercontent.com/33985509/59152190-9fcb8a00-8a3f-11e9-9d13-cb7355f85bce.png)
 
 
+
+
 Go to git hub and change your pom.xml file and scroll below
+
+
+
 
 https://github.com/manishalankala/helloworld-java-maven/blob/master/pom.xml
 
@@ -148,18 +173,29 @@ Go to Git repositories tab in application in administration click on actions and
 sonar src code - 
 sonar runner or scanner - 2.6.1
 
+
 docker pull sonarqube
+
 
 docker run -d --name sonarqube -p 8082:9000 sonarqube
 
+
 #(docker run -d --name sonarqube -p 9000:9000 sonarqube -p 9092:9092 sonarqube)#
+
+
 
 http://35.237.64.4:8082/about
 
+
+
 Login sonarqube
+
+
 
 username - admin
 password - admin
+
+
 
 
 ![image](https://user-images.githubusercontent.com/33985509/59152150-b58c7f80-8a3e-11e9-8ae7-f6bafd5d1c01.png)
@@ -167,6 +203,8 @@ password - admin
 
 
 https://github.com/manishalankala/java-sonar-runner-simple
+
+
 
 
 took src folder copied to my ops folder remaining files deleted
@@ -184,7 +222,9 @@ then
 L:\ops\sonar-scanner-cli-3.3.0.1492-windows\sonar-scanner-3.3.0.1492-windows\bin\sonar-scanner.bat
 
 
+
 Its need to tell the scanner to know its path in conf folder (sonar-scanner-properties)
+
 
 
 L:\ops\sonarsrc contains (sonar-project.properties)
@@ -197,7 +237,7 @@ L:\ops\sonarsrc contains (sonar-project.properties)
 
 
 
-# Docker nexus (Setting up Nexus)
+# Docker nexus    (Setting up Nexus)
 
 ocker pull sonatype/nexus
 
@@ -217,7 +257,10 @@ admin / admin123
 
 
 
-# Imprtant nexus modification on the below files
+
+
+
+# Important nexus modification on the below files
 
 
 
