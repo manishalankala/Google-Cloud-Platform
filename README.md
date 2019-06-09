@@ -2053,10 +2053,19 @@ Note:
 
 
 
-Chef
+# Chef
 
 
 https://manage.chef.io/login
+
+
+
+Here i used 
+
+dockerdemo ----  Master server
+
+
+jmslave ---    node
 
 
 Create an origanization name 
@@ -2065,16 +2074,164 @@ Create an origanization name
 
 You can download the starter kit 
 
+
 ![image](https://user-images.githubusercontent.com/33985509/59154512-0ff40300-8a74-11e9-9082-2179d640e0c7.png)
 
 
 
 
 
-Chef server
-knife configuration
-cookbooks
-nodes
+>Chef server
+
+>knife configuration
+
+>cookbooks
+
+>nodes
+
+
+wget https://packages.chef.io/files/stable/chefdk/4.0.60/el/7/chefdk-4.0.60-1.el7.x86_64.rpm (Installed on worker machine)
+
+
+curl -O https://packages.chef.io/files/stable/chefdk/4.0.60/el/7/chefdk-4.0.60-1.el7.x86_64.rpm
+
+
+yum install chefdk-4.0.60-1.el7.x86_64.rpm 
+
+
+![image](https://user-images.githubusercontent.com/33985509/59154614-5b0f1580-8a76-11e9-8010-a6aff2159ad0.png)
+
+
+cd 
+
+mkdir chef-repo (Created repo)
+
+[root@dockerdemo ~]# ls
+chefdk-4.0.60-1.el7.x86_64.rpm  chef-repo
+
+
+mkdir cookbooks
+
+
+mkdir .chef (Created repo)
+
+
+![image](https://user-images.githubusercontent.com/33985509/59154640-5565ff80-8a77-11e9-9a1e-6098da6229f0.png)
+
+
+ssh-keygen -t rsa
+
+
+place the public key in .chef 
+      
+      
+    
+it looks for the .chef directory default
+
+[alma252@jmslave1 ~]$ cd ~/.ssh
+[alma252@jmslave1 .ssh]$ ls
+known_hosts
+
+vi authorized_keys 
+
+copy the public key and save it  else can't able to ssh
+
+
+
+ssh -i .chef/jmslave alma252@35.211.155.102 ( ssh to node )
+
+
+knife bootstrap 35.211.155.102 --ssh-user alma252 -i .chef/jmslave --sudo --node-name gce-jmslave -VV -y
+
+
+
+
+
+For Reference here 
+https://linuxacademy.com/community/posts/show/topic/22511-bootstrap-a-node-using-ssh-publicprivate-key-asking-sudo-pwd
+
+
+
+https://linuxacademy.com/community/posts/show/topic/22511-bootstrap-a-node-using-ssh-publicprivate-key-asking-sudo-pwd
+https://docs.chef.io/chef_client_overview.html
+http://blog.asquareb.com/blog/2014/06/09/basic-chef-knife-commands/
+https://linoxide.com/linux-how-to/chef-workstation-server-node-centos-7/
+https://www.itzgeek.com/how-tos/linux/centos-how-tos/setup-chef-12-centos-7-rhel-7.html
+https://blog.andreev.it/?p=3522
+https://docs.chef.io/knife_node.html 
+https://docs.chef.io/knife_bootstrap.html
+https://serverfault.com/questions/653543/chef-ssh-without-password
+
+
+
+
+
+https://api.chef.io/organizations/eurodrone/cookbooks
+
+
+
+
+
+![image](https://user-images.githubusercontent.com/33985509/59154712-6879cf00-8a79-11e9-9e55-e700a7328748.png)
+
+
+
+[root@dockerdemo .chef]# knife client list
+/opt/chefdk/embedded/lib/ruby/gems/2.6.0/gems/chef-15.0.300/lib/chef/knife/bootstrap.rb:31: warning: already initialized constant Chef::Knife::Bootstrap::SUPPORTED_CONNECTION_
+PROTOCOLS
+/opt/chefdk/embedded/lib/ruby/gems/2.6.0/gems/chef-15.0.300/lib/chef/knife/bootstrap.rb:31: warning: previous definition of SUPPORTED_CONNECTION_PROTOCOLS was here
+/opt/chefdk/embedded/lib/ruby/gems/2.6.0/gems/chef-15.0.300/lib/chef/knife/bootstrap.rb:32: warning: already initialized constant Chef::Knife::Bootstrap::WINRM_AUTH_PROTOCOL_L
+IST
+/opt/chefdk/embedded/lib/ruby/gems/2.6.0/gems/chef-15.0.300/lib/chef/knife/bootstrap.rb:32: warning: previous definition of WINRM_AUTH_PROTOCOL_LIST was here
+/opt/chefdk/embedded/lib/ruby/gems/2.6.0/gems/chef-15.0.300/lib/chef/knife/bootstrap.rb:350: warning: already initialized constant Chef::Knife::Bootstrap::DEPRECATED_FLAGS
+/opt/chefdk/embedded/lib/ruby/gems/2.6.0/gems/chef-15.0.300/lib/chef/knife/bootstrap.rb:350: warning: previous definition of DEPRECATED_FLAGS was here
+eurodrone-validator
+gce-jmslave
+
+
+
+
+[root@dockerdemo .chef]# knife node list
+/opt/chefdk/embedded/lib/ruby/gems/2.6.0/gems/chef-15.0.300/lib/chef/knife/bootstrap.rb:31: warning: already initialized constant Chef::Knife::Bootstrap::SUPPORTED_CONNECTION_
+PROTOCOLS
+/opt/chefdk/embedded/lib/ruby/gems/2.6.0/gems/chef-15.0.300/lib/chef/knife/bootstrap.rb:31: warning: previous definition of SUPPORTED_CONNECTION_PROTOCOLS was here
+/opt/chefdk/embedded/lib/ruby/gems/2.6.0/gems/chef-15.0.300/lib/chef/knife/bootstrap.rb:32: warning: already initialized constant Chef::Knife::Bootstrap::WINRM_AUTH_PROTOCOL_L
+IST
+/opt/chefdk/embedded/lib/ruby/gems/2.6.0/gems/chef-15.0.300/lib/chef/knife/bootstrap.rb:32: warning: previous definition of WINRM_AUTH_PROTOCOL_LIST was here
+/opt/chefdk/embedded/lib/ruby/gems/2.6.0/gems/chef-15.0.300/lib/chef/knife/bootstrap.rb:350: warning: already initialized constant Chef::Knife::Bootstrap::DEPRECATED_FLAGS
+/opt/chefdk/embedded/lib/ruby/gems/2.6.0/gems/chef-15.0.300/lib/chef/knife/bootstrap.rb:350: warning: previous definition of DEPRECATED_FLAGS was here
+gce-jmslave
+
+
+
+
+
+
+[root@dockerdemo .chef]# cat knife.rb 
+# See http://docs.chef.io/config_rb_knife.html for more information on knife configuration options
+current_dir = File.dirname(__FILE__)
+log_level                :info
+log_location             STDOUT
+node_name                "manishalankala"
+client_key               "#{current_dir}/manishalankala.pem"
+chef_server_url          "https://api.chef.io/organizations/eurodrone"
+cookbook_path            ["#{current_dir}/../cookbooks"]
+
+
+
+
+
+[root@dockerdemo chef-repo]# cd cookbooks/
+[root@dockerdemo cookbooks]# ls
+httpd_deploy  learn_chef_httpd
+
+
+
+
+knife node run_list add gce-jmslave "recipe[httpd_deploy]"
+
+
+![image](https://user-images.githubusercontent.com/33985509/59154929-e50eac80-8a7d-11e9-9f97-59733869a513.png)
 
 
 
@@ -2085,17 +2242,9 @@ nodes
 
 
 
-![image](https://user-images.githubusercontent.com/33985509/59063276-0322b400-88a8-11e9-82ae-9b412c50e384.png)
 
 
 
-
-![image](https://user-images.githubusercontent.com/33985509/59063395-4715b900-88a8-11e9-995c-54ba01e926ae.png)
-
-
-
-
-![image](https://user-images.githubusercontent.com/33985509/59063489-7e846580-88a8-11e9-9690-c066b2bda399.png)
 
 
 
