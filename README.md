@@ -1,4 +1,4 @@
-CI/CD from scratch using Google cloud platform
+CI/CD using Google cloud platform
 
 ![image](https://user-images.githubusercontent.com/33985509/59151479-25493d00-8a34-11e9-9cff-90a50130124c.png)
 
@@ -1739,14 +1739,82 @@ Type: free style project
  
  
  
+Creating one more build 
+
+Name: package
+Type: multi configuration
+
+
+![image](https://user-images.githubusercontent.com/33985509/59153397-9f8bb880-8a58-11e9-9bbe-96e8df414c36.png)
+
+
+![image](https://user-images.githubusercontent.com/33985509/59153406-fdb89b80-8a58-11e9-9e9c-9e7b6a723cd5.png)
+
+
+run build now
+![image](https://user-images.githubusercontent.com/33985509/59153419-3fe1dd00-8a59-11e9-9eb6-d013f3bd4bd1.png)
+
+
+
+
+Creating one more build 
+
+Name: DeploytoNexus 
+Type: free style project
+
+
+![image](https://user-images.githubusercontent.com/33985509/59153445-ee861d80-8a59-11e9-9660-1d664eb2deb0.png)
+
+
+![image](https://user-images.githubusercontent.com/33985509/59153455-3016c880-8a5a-11e9-8459-b24c5f84de91.png)
+
+
+![image](https://user-images.githubusercontent.com/33985509/59153458-4d4b9700-8a5a-11e9-8bd6-969790856216.png)
+
+
+![image](https://user-images.githubusercontent.com/33985509/59153470-8126bc80-8a5a-11e9-915e-7fe18d173dfa.png)
+
+
+![image](https://user-images.githubusercontent.com/33985509/59153477-a74c5c80-8a5a-11e9-9d70-f16c81266c90.png)
+
+
+
+ 
+Deployment process 
+ 
+sonarqube ---> build ----> unit testing ----> Package -----> DeploytoNexus
+
+Now to do deployment process
+
+go to sonarqube build job and click on configure tab ---> post build actions 
+
+![image](https://user-images.githubusercontent.com/33985509/59153540-2e99d000-8a5b-11e9-8a1d-3a05a87df71c.png)
+
+go to build job and click on configure tab ---> post build actions 
+
+![image](https://user-images.githubusercontent.com/33985509/59153544-7b7da680-8a5b-11e9-8704-e8fae368a3bd.png)
+
+
+go to Unit Testing build job and click on configure tab ---> post build actions 
+
+![image](https://user-images.githubusercontent.com/33985509/59153549-a9fb8180-8a5b-11e9-891b-31c12552eda0.png)
+ 
+ 
+go to package build job and click on configure tab ---> post build actions 
+
+![image](https://user-images.githubusercontent.com/33985509/59153555-052d7400-8a5c-11e9-9c98-603de0b0c081.png)
  
  
  
+install pipeline plugin 
  
- 
- 
- 
- 
+https://wiki.jenkins.io/display/JENKINS/Pipeline+Plugin
+
+
+
+
+
+
 
 
 Note:
