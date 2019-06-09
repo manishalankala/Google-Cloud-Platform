@@ -2078,6 +2078,7 @@ You can download the starter kit
 ![image](https://user-images.githubusercontent.com/33985509/59154512-0ff40300-8a74-11e9-9082-2179d640e0c7.png)
 
 
+knife command is found when we install the chefdk
 
 
 
@@ -2206,9 +2207,10 @@ gce-jmslave
 
 
 
-
 [root@dockerdemo .chef]# cat knife.rb 
-# See http://docs.chef.io/config_rb_knife.html for more information on knife configuration options
+
+
+see http://docs.chef.io/config_rb_knife.html for more information on knife configuration options
 current_dir = File.dirname(__FILE__)
 log_level                :info
 log_location             STDOUT
@@ -2218,9 +2220,23 @@ chef_server_url          "https://api.chef.io/organizations/eurodrone"
 cookbook_path            ["#{current_dir}/../cookbooks"]
 
 
+knife cookbook site download learn_chef_httpd
+
+tar -xvf learn_chef_httpd-0.2.0.tar.gz
+
+rm -rf learn_chef_httpd-0.2.0.tar.gz
+
+chef generate template httpd_deploy index.html
+
+knife cookbook upload learn_chef_httpd -VV
+
+
+it didn't worked 
 
 
 
+
+chef generate cookbook httpd_deploy
 [root@dockerdemo chef-repo]# cd cookbooks/
 [root@dockerdemo cookbooks]# ls
 httpd_deploy  learn_chef_httpd
@@ -2229,6 +2245,7 @@ httpd_deploy  learn_chef_httpd
 
 
 knife node run_list add gce-jmslave "recipe[httpd_deploy]"
+
 
 
 ![image](https://user-images.githubusercontent.com/33985509/59154929-e50eac80-8a7d-11e9-9f97-59733869a513.png)
