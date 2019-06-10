@@ -2255,6 +2255,69 @@ knife node run_list add gce-jmslave "recipe[httpd_deploy]"
 
 
 
+Errors:
+
+![image](https://user-images.githubusercontent.com/33985509/59220295-e7c7e980-8bc4-11e9-82b2-3d5ee9d91e38.png)
+
+knife ssh 'gce-jmslave' 'sudo chef-client' alma252 --sudo .chef/jmslave  -VV
+
+knife ssh 'gce-jmslave' 'sudo chef-client' --ssh-user alma252 -i /root/chef-repo/.chef/jmslave -VV    (./chef/jmslave has public key)
+
+
+
+![image](https://user-images.githubusercontent.com/33985509/59220515-75a3d480-8bc5-11e9-890e-6465abd24ced.png)
+
+
+
+
+
+
+Resolution at here is 
+
+knife ssh "name:gce-jmslave" "sudo chef-client" -x alma252 -i .chef/jmslave
+
+
+Observation : 
+
+![image](https://user-images.githubusercontent.com/33985509/59220743-ffec3880-8bc5-11e9-93d3-ee196808b176.png)
+
+
+
+![image](https://user-images.githubusercontent.com/33985509/59220853-33c75e00-8bc6-11e9-8372-3f912e7d62cd.png)
+
+
+
+to confirm on node machine
+
+![image](https://user-images.githubusercontent.com/33985509/59220960-78eb9000-8bc6-11e9-921e-21fb92c3f262.png)
+
+
+
+in other screnario we can do this by jenkins
+
+jenkins ---> New Item -----> Free style project ------> name i gave is Deployto chefnodes -----> configure 
+
+![image](https://user-images.githubusercontent.com/33985509/59221518-b8ff4280-8bc7-11e9-8bb0-52c9b6d95447.png)
+
+Then click  on build now will get the errors 
+
+
+because 
+
+![image](https://user-images.githubusercontent.com/33985509/59221610-fe237480-8bc7-11e9-8ccd-4547e4773f42.png)
+
+its under root permissions we need to change to chown -r jenkins:jenkins /chef-repo
+
+then try giving build now still we face issue the last step would be mv chef-repo/ /opt/ will fix this
+
+i didn't try this scenario in jenkins
+
+
+
+
+
+
+
 
 
 
