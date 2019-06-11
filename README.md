@@ -2330,6 +2330,35 @@ the git url can be specified
 
 
 
+# JaCoCo - Java Code Coverage Library 
+
+
+Reference : https://www.jacoco.org/jacoco/trunk/index.html
+
+
+https://github.com/manishalankala/jacoco-maven
+
+
+
+
+![image](https://user-images.githubusercontent.com/33985509/59267582-e93bf500-8c4a-11e9-8c4a-2a81a70a0aed.png)
+
+
+
+![image](https://user-images.githubusercontent.com/33985509/59267629-fce75b80-8c4a-11e9-81cb-7740abdc45cf.png)
+
+
+
+![image](https://user-images.githubusercontent.com/33985509/59267686-1f797480-8c4b-11e9-96d4-f6580d708f42.png)
+
+
+
+![image](https://user-images.githubusercontent.com/33985509/59267527-c578af00-8c4a-11e9-83ea-443589d9e70c.png)
+
+
+
+![image](https://user-images.githubusercontent.com/33985509/59267481-a712b380-8c4a-11e9-87d9-bf32036e8b76.png)
+
 
 
 
