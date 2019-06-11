@@ -2295,7 +2295,7 @@ to confirm on node machine
 
 in other screnario we can do this by jenkins
 
-jenkins ---> New Item -----> Free style project ------> name i gave is Deployto chefnodes -----> configure 
+jenkins ---> New Item -----> Free style project ------> name i gave is Deploytochefnodes -----> configure 
 
 ![image](https://user-images.githubusercontent.com/33985509/59221518-b8ff4280-8bc7-11e9-8bb0-52c9b6d95447.png)
 
@@ -2313,6 +2313,16 @@ then try giving build now still we face issue the last step would be mv chef-rep
 i didn't try this scenario in jenkins
 
 
+so from chef-repo directory 
+
+git init
+git add -A .
+git -m commit "chef"
+git push https://github.com/manishalankala/Google-Cloud-Platform.git
+
+else push to a new repository in git 
+
+the git url can be specified 
 
 
 
