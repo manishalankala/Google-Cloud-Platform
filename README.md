@@ -10,6 +10,15 @@
 
 
 
+* Setup Jira using Docker
+* Setup Nexus Using Docker
+* Setup Sonarqube Using Docker
+* Setup Jenkins using Docker
+* Setup build pipeline
+* Setup jacoco in Jenkins
+* Setup Deployment process in Jenkins
+* Setup Chef,Knife 
+
 
 
 ![image](https://user-images.githubusercontent.com/33985509/59151479-25493d00-8a34-11e9-9cff-90a50130124c.png)
