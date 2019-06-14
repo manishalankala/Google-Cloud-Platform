@@ -19,6 +19,71 @@
 ![image](https://user-images.githubusercontent.com/33985509/59151479-25493d00-8a34-11e9-9cff-90a50130124c.png)
 
 
+## CI
+
+Continuous Integration (CI) is the process of automating the build and testing of code every time a team member commits changes to version control. 
+
+CI encourages developers to share their code and unit tests by merging their changes into a shared version control repository after every small task completion. 
+
+Committing code triggers an automated build system to grab the latest code from the shared repository and to build, test, and validate the full master branch
+
+
+
+## CD
+
+
+Continuous Delivery (CD) is the process to build, test, configure and deploy from a build to a production environment. 
+
+Multiple testing or staging environments create a Release Pipeline to automate the creation of infrastructure and deployment of a new. 
+
+Successive environments support progressively longer-running activities of integration, load, and user acceptance testing.
+
+Continuous Integration starts the CD process and the pipeline stages each successive environment the next upon successful completion of tests.
+
+
+
+## IAC
+
+
+Infrastructure as Code (IaC) is the management of infrastructure (networks, virtual machines, load balancers, and connection topology) in a descriptive model, using the same versioning as DevOps team uses for source code. 
+
+Like the principle that the same source code generates the same binary, an IaC model generates the same environment every time it is applied. 
+
+IaC is a key DevOps practice and is used in conjunction with continuous delivery.
+
+
+
+
+## Docker 
+
+Two containerized processes can run side-by-side on the same computer, but they can’t interfere with each other.
+
+They can’t access each other’s data unless explicitly configured to do so.
+
+Two different applications can run containers on the same hardware with confidence that their processes and data are secure.
+
+Shared hardware means less hardware. G
+
+one are the days when a company needs thousands of servers to run applications. 
+
+That hardware can be shared between different business units or entirely different enterprise clients. 
+
+The result is massive new economies of scale for private and public centers alike.
+
+The Docker command-line interface (CLI)
+
+The Docker Engine
+
+Faster scaling of systems
+
+Better software delivery
+
+Flexibility
+
+Software-defined networking
+
+The rise of microservices architecture
+
 
 
 
@@ -97,7 +162,7 @@ If your business competes with Amazon then you can freely choose GCP in that cas
 
 
 
-# Create a vm instance in Google cloud account and create external ip 
+## Create a vm instance in Google cloud account and create external ip 
 
 
 
@@ -105,7 +170,7 @@ If your business competes with Amazon then you can freely choose GCP in that cas
 
 
 
-# Create a firewall port for each application
+## Create a firewall port for each application
 
 
 
@@ -113,7 +178,7 @@ If your business competes with Amazon then you can freely choose GCP in that cas
 
 
 
-# Create a specific port for jira application to run
+## Create a specific port for jira application to run
 
 
 
@@ -121,7 +186,7 @@ If your business competes with Amazon then you can freely choose GCP in that cas
 
 
 
-# SSH
+## SSH
 
 
 ![image](https://user-images.githubusercontent.com/33985509/59151763-27fa6100-8a39-11e9-91df-36d99394965c.png)
