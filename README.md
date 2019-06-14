@@ -1,10 +1,4 @@
 
-# Beginner Guide
-
-
-
-
-
 
 # CI/CD using Google Cloud Platform
 
@@ -21,7 +15,82 @@
 
 
 
+
 ![image](https://user-images.githubusercontent.com/33985509/59151479-25493d00-8a34-11e9-9cff-90a50130124c.png)
+
+
+
+
+
+
+![image](https://user-images.githubusercontent.com/33985509/59542620-259b7980-8f07-11e9-990d-50cfd6b28bb5.png)
+
+
+
+
+
+
+
+
+## AWS (Amazon Web Services) – Pros and Cons
+
+This is the dominant cloud platform in the IT space but it could not be suitable for each and every project.
+
+Still, for IaaS services, Amazon will continue dominating the market for many years to come. One of the biggest reasons for the 
+popularity of AWS is the massive scope of operations.
+
+AWS has a massive array of services available so far and it is taken as the biggest network of data centers too. 
+
+As per the Gartner report, AWS has the deepest capabilities of governing a large number of users and resources together.
+
+The biggest problem with AWS is its pricing.
+
+However, the Company is lowering down its costs continuously still it is difficult for enterprises understanding its cost structure and managing costs when running a large volume of services. 
+
+These cons are quickly outweighed by a perfect range of benefits and Companies of all sizes are using AWS for a variety of workloads.
+
+
+## Microsoft Azure – Pros and Cons
+
+Microsoft entered the cloud market little late but it took a jump start with its effective range of services and cloud benefits. 
+
+The major reason for the popularity of the Azure platform is that many Companies deploy Windows software today.
+
+It can be quickly integrated with other applications and actually makes sense for large organizations. 
+
+It is taken as the more loyal platform for Microsoft users. 
+
+Also, if you are an existing Microsoft user then you may get attractive discounts on Azure cloud services.
+
+According to Gartner, Azure is not that much perfect as it should be. 
+
+The customers are facing problems with documentation, technical support, training materials etc. 
+
+Additionally, it does not provide the suitable support to DevOps approaches because of selected automation features and much of management work is completed by the staff itself.
+
+
+
+
+## Google Cloud Platform – Pros and Cons
+
+Google is also a strong candidate in the cloud race since it started the Kubernetes in comparison to the AWS and the Azure. 
+
+Some of the major offerings of Google Cloud Platform includes machine learning, big data analytics and more. 
+
+The other highlights are perfect load balancing, or considerable scaling etc.
+
+GCP has an excellent response time and he knows data centers well. 
+
+Google is ranked third in the IT marketplace because it does not provide as many services as AWS or Azure. Soo, it will expand as needed.
+
+According to Gartner, GCP is not a strategic partner but it is taken as the secondary partner only. 
+
+If your business competes with Amazon then you can freely choose GCP in that case. This is open source platform that is highly DevOps centric and well-aligned to Microsoft Azure.
+
+
+
+![image](https://user-images.githubusercontent.com/33985509/59542595-000e7000-8f07-11e9-8186-1d2b643ec6a5.png)
+
 
 
 
@@ -114,6 +183,28 @@ Url: http://35.237.64.4:8081/secure/WelcomeToJIRA.jspa
 
 
 
+## Jira 
+
+
+Reference link :   https://www.atlassian.com/software/jira
+
+
+JIRA is an Incident Management Tool used for Project Management, Bug Tracking, Issue Tracking and Workflow. JIRA is based on the following three concepts – Project, Issue and Workflow.
+
+
+JIRA is used in Bugs, Issues and Change Request Tracking.
+
+
+JIRA can be used in Help desk, Support and Customer Services to create tickets and track the resolution and status of the created tickets.
+
+
+JIRA is useful in Project Management, Task Tracking and Requirement Management.
+
+
+JIRA is very useful in Workflow and Process management.
+
+
+
 
 Name : AIR
 Key : AIR
@@ -147,7 +238,37 @@ we can see Your trial is expiring on 30/Jun/19. Buy a license for this app.
 
 
 
-# Git integration for JIRA
+## Git integration with JIRA
+
+
+Reference link:   https://git-scm.com/
+
+
+
+
+
+Simultaneous development
+
+
+Faster releases
+
+
+Built-in integration
+
+
+Strong community support
+
+
+Git works with your team
+
+
+Pull requests
+
+
+Branch policies
+
+
+
 
 
 
