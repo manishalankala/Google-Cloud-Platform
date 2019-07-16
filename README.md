@@ -189,7 +189,7 @@ sudo usermod -aG docker your-user
 
 
 ## AWS (Amazon Web Services) – Pros and Cons
-
+```
 This is the dominant cloud platform in the IT space but it could not be suitable for each and every project.
 
 Still, for IaaS services, Amazon will continue dominating the market for many years to come. One of the biggest reasons for the 
@@ -205,9 +205,10 @@ However, the Company is lowering down its costs continuously still it is difficu
 
 These cons are quickly outweighed by a perfect range of benefits and Companies of all sizes are using AWS for a variety of workloads.
 
+`````
 
 ## Microsoft Azure – Pros and Cons
-
+````
 Microsoft entered the cloud market little late but it took a jump start with its effective range of services and cloud benefits. 
 
 The major reason for the popularity of the Azure platform is that many Companies deploy Windows software today.
@@ -223,12 +224,10 @@ According to Gartner, Azure is not that much perfect as it should be.
 The customers are facing problems with documentation, technical support, training materials etc. 
 
 Additionally, it does not provide the suitable support to DevOps approaches because of selected automation features and much of management work is completed by the staff itself.
-
-
-
+````
 
 ## Google Cloud Platform – Pros and Cons
-
+````
 Google is also a strong candidate in the cloud race since it started the Kubernetes in comparison to the AWS and the Azure. 
 
 Some of the major offerings of Google Cloud Platform includes machine learning, big data analytics and more. 
@@ -251,7 +250,7 @@ If your business competes with Amazon then you can freely choose GCP in that cas
 
 
 
-
+```
 
 ## Create a vm instance in Google cloud account and create external ip 
 
