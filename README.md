@@ -227,7 +227,7 @@ Additionally, it does not provide the suitable support to DevOps approaches beca
 ````
 
 ## Google Cloud Platform – Pros and Cons
-````
+
 Google is also a strong candidate in the cloud race since it started the Kubernetes in comparison to the AWS and the Azure. 
 
 Some of the major offerings of Google Cloud Platform includes machine learning, big data analytics and more. 
@@ -248,9 +248,6 @@ If your business competes with Amazon then you can freely choose GCP in that cas
 
 
 
-
-
-```
 
 ## Create a vm instance in Google cloud account and create external ip 
 
