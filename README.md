@@ -69,7 +69,7 @@ IaC is a key DevOps practice and is used in conjunction with continuous delivery
 
 
 ## Docker 
-
+```
 . Two containerized processes can run side-by-side on the same computer, but they can’t interfere with each other.
 
 . They can’t access each other’s data unless explicitly configured to do so.
@@ -97,14 +97,14 @@ IaC is a key DevOps practice and is used in conjunction with continuous delivery
 . Software-defined networking
 
 . The rise of microservices architecture
-
+```
 
 I did installed docker on Centos 7
 
 
 
 ## Steps to install Docker CE
-
+````
 
 yum update
 
@@ -131,7 +131,6 @@ sudo systemctl status docker
 sudo systemctl enable docker
 
 
-
 Install from a package:
 
 
@@ -156,7 +155,7 @@ sudo systemctl enable docker
 
 
 
-
+````
 
 Always examine scripts downloaded from the internet before running them locally.
 
